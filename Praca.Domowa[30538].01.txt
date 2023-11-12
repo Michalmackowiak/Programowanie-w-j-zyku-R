@@ -1,0 +1,87 @@
+# --------------------------------------------------------
+#
+# Imię:Michał   
+# Nazwisko:Maćkowiak
+# Numer albumu:30538
+#
+# --------------------------------------------------------
+#
+# Zadanie.01 
+#
+# Wygeneruj wektor liczb losowych x1. 
+#   Dziedzina losowania to liczby całkowite od 1 do 100.
+#   Wektor posiada 100 elementów. 
+#   Elementy wektora nie mogą się powtarzać.
+# Podaj sumę wartości elementów wektora. 
+# Wskazówka: skorzystaj z funkcji 'sample'.
+suma <- sum(sample(1:100))
+print(suma)
+# --------------------------------------------------------
+
+# --------------------------------------------------------
+#
+# Zadanie.02
+#
+# Wygeneruj wektor liczb losowych x2. 
+#   Dziedzina losowania to liczby całkowite {1,2,3}.
+#   Wektor posiada 50 elementów. 
+#   Elementy wektora mogą się powtarzać.
+# Policz liczbę wystąpień każdej liczby w wektorze. 
+# Wskazówka: skorzystaj z funkcji 'table'.
+#
+liczby_wystapienia <- table(sample(1:3, 50, replace = TRUE))
+print(liczby_wystapienia)
+
+# --------------------------------------------------------
+
+# --------------------------------------------------------
+#
+# Zadanie.03
+#
+# Stwórz losowe słowo ośmioliterowe. 
+#   Dziedzina losowania to wektor 'letters'.
+#   Elementy wektora nie mogą się powtarzać.
+# Wskazówka: skorzystaj z funkcji 'paste', aby połączyć elementy wektora w słowo. 
+
+# --------------------------------------------------------
+slowo <- paste(sample(letters, 8, replace = FALSE), collapse = "")
+print(slowo)
+
+# --------------------------------------------------------
+#
+# Zadanie.04
+#
+# Stwórz wektor x4 kolejnych liczb całkowitych od 1 do 10. 
+#   Każdy element wektora podstaw jako promień r i wylicz dla niego
+#     - obwód koła
+#     - pole koła
+#     - powierzchnię kuli (sfera)
+#     - objętość kuli
+# Wszystkie wyniki zgromadź w macierzy o 10 wierszach i 5 kolumnach. 
+# Wyświetl macierz wyników z dokładnością do dwóch miejsc dziesiętnych.
+#
+# --------------------------------------------------------
+x4 <- 1:10
+obliczenia_dla_r <- function(r) {
+  obwod_kola <- 2 * pi * r
+  pole_kola <- pi * r^2
+  powierzchnia_kuli <- 4 * pi * r^2
+  objetosc_kuli <- (4/3) * pi * r^3
+  
+  return(c(obwod_kola, pole_kola, powierzchnia_kuli, objetosc_kuli))
+}
+
+wyniki <- t(sapply(x4, obliczenia_dla_r))
+print(round(wyniki, 2))
+
+# --------------------------------------------------------
+#
+# Zadanie.05
+# 
+# Policz ile jest wspólnych wielokrotności liczb 2 i 3
+# w zbiorze licz całkowitych od 1 do 1500.  
+# Wskazówka: skorzystaj z funkcji 'intersect'.
+# 
+# --------------------------------------------------------
+wspolne_wielokrotnosci <- intersect(seq(2, 1500, by = 2), seq(3, 1500, by = 3))
+print(length(wspolne_wielokrotnosci))
